@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Save</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/stlite.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module">
+    import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/stlite.js";
+    mount(
+      {
+        requirements: ["scikit-learn", "pandas", "numpy"],
+        entrypoint: "app.py",
+        files: {
+          "app.py": { url: "./app.py" },
+          // ถ้ามีไฟล์อื่นที่แอปใช้ เช่น โมเดลหรือ CSV ให้เพิ่มแบบนี้
+          // "model.pkl": { url: "./model.pkl" },
+          // "data/data.csv": { url: "./data/data.csv" },
+        },
+      },
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>
